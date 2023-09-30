@@ -4,8 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 
 const HomeScreen = ({ navigation }) => {
-    const goToClass = () => {
-        navigation.navigate('Class');
+    const goToVimeoPlayer = () => {
+        navigation.navigate('VimeoPlayer');
     };
     const goToMOD1 = () => {
         navigation.navigate('Modulo 1')
@@ -33,7 +33,7 @@ const HomeScreen = ({ navigation }) => {
                     Lecciones recomendadas para hoy
                 </Text>
                 <View>
-                    <TouchableOpacity onPress={goToClass}>
+                    <TouchableOpacity onPress={goToVimeoPlayer}>
                         <Image
                             source={require('../../assets/images/FEEDBACKN.png')}
                             style={styles.Recommendedclass}

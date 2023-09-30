@@ -25,6 +25,10 @@ export default function InicioSesion() {
     console.log(`Iniciando gmail...`);
   };
 
+  const goTOOlvidoContraseña = () => {
+    navigation.navigate('OlvidoContraseña')
+  };
+
   const toggleRememberPassword = () => {
     setRememberPassword(!rememberPassword);
 
@@ -68,7 +72,7 @@ export default function InicioSesion() {
             containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
             textStyle={styles.commonText}
           />
-          <TouchableOpacity>
+          <TouchableOpacity onPress={goTOOlvidoContraseña}>
             <Text style={styles.forgotPasswordButton}>Forgot Password</Text>
           </TouchableOpacity>
         </View>

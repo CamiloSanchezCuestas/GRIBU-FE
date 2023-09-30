@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/components/HomeScreen';
-import Class from './src/components/Class';
+import VimeoPlayer from './src/components/VimeoPlayer';
 import InicioSesion from './src/components/InicioSesion';
 import Registro from './src/components/Registro';
 import Modulo1Screen from './src/components/Modulo1Screen';
@@ -10,6 +10,8 @@ import Modulo2Screen from './src/components/Modulo2Screen';
 import Modulo3Screen from './src/components/Modulo3Screen';
 import Buscador from './src/components/Buscador';
 import Profile from './src/components/Profile';
+import OlvidoContraseña from './src/components/OlvidoContraseña'
+import NewPassword from './src/components/NewPassword';
 
 const Stack = createStackNavigator();
 
@@ -31,8 +33,8 @@ const App = () => {
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen
-                name="Class"
-                component={Class}
+                name="VimeoPlayer"
+                component={VimeoPlayer}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen
@@ -63,6 +65,16 @@ const App = () => {
             <Stack.Screen
                 name="Profile"
                 component={Profile}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
+                name="OlvidoContraseña"
+                component={OlvidoContraseña}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
+                name="NewPassword"
+                component={NewPassword}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
         </Stack.Navigator>
