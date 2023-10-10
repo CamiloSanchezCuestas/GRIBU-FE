@@ -71,9 +71,14 @@ export default function InicioSesion() {
         
 
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          
-          
-          <Text style={styles.buttonLogin}>INICIA SESION</Text>
+        <LinearGradient
+          colors={['#2aeefb','#c3f8ff']} 
+          start={{ x: 1, y: 0 }} 
+          end={{ x: 0, y: 0 }}
+          style={styles.buttonGradient}
+        >
+          <Text style={styles.buttonLogin}>INICIA SESIÓN</Text>
+        </LinearGradient>
         </TouchableOpacity>
 
         <Text style={styles.text2}>¿No tienes cuenta?</Text>
@@ -91,6 +96,14 @@ export default function InicioSesion() {
 
 
 const styles = StyleSheet.create({
+
+  buttonGradient: {
+    flex: 2,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+  },
   background: {
     flex: 1,
     resizeMode: 'contain',
@@ -152,14 +165,16 @@ const styles = StyleSheet.create({
     width: 190,
     height: 45,
     borderRadius: 10,
-    padding:4,
+    shadowColor: '#000', 
+    shadowOpacity: 1, 
+    elevation: 10, 
     
   },
 
   button: {
    
     padding: 10,
-    borderRadius: 0,
+    
   },
   buttonLogin: {
     color: '#1f308a',
@@ -196,23 +211,30 @@ const styles = StyleSheet.create({
 
   buttonGmail: {
     color: '#000',
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 10,
+    fontWeight: '400',
     textAlign: 'center',
     
 
   },
 
-  Gmailbuttom:{
+  Gmailbuttom: {
+    backgroundColor: '#60EEF8',
+    borderRadius: 15,
+    width: 185,
+    height: 25,
+    padding: 4,
+    marginBottom: -50,
+    borderWidth:2,
+    borderColor:'#68bcd5',
+    shadowColor: '#68bcd5', 
     
-  backgroundColor:'rgba(255,255,255,0.7)',
-  borderRadius:15,
-  width:160,
-  height: 30,
-  padding:4,
-  marginBottom:-50
-  
   },
+  
+  
+  
+  
+  
 
   imageText: {
     color: '#ffff',
