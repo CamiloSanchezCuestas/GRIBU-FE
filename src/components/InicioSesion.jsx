@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 import { LinearGradient } from 'expo-linear-gradient'; 
-import { CheckBox } from 'react-native-elements';
+
 
 export default function InicioSesion() {
   const navigation = useNavigation();
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberPassword, setRememberPassword] = useState(false); 
+ 
 
 
   const navigateToRegistro = () => {
@@ -29,59 +29,62 @@ export default function InicioSesion() {
     navigation.navigate('OlvidoContraseña')
   };
 
-  const toggleRememberPassword = () => {
-    setRememberPassword(!rememberPassword);
-
-    // Mostrar mensaje en la consola
-    const message = rememberPassword ? 'No recordar contraseña' : 'Recordar contraseña';
-    console.log(message);
-  };
         
   return (
     <LinearGradient
-      colors={['#6699ff', '#00ffff']} 
+      colors={['#7731D0','#7731D0', '#d0c8ef']} 
       style={styles.container}
     >
       <Text style={styles.title}> Bienvenido de nuevo </Text>
       <View style={styles.overlay1}>
         <ImageBackground
           source={require('../../assets/images/Portada.png')}
-          style={styles.Image}
-        ></ImageBackground>
+          style={styles.Image} >
+        </ImageBackground>
+
+        <View style={styles.imageTextContainer}>
+          <Text style={styles.imageText}>
+
+            Tu mundo de desarrollo personal
+          </Text>
+        </View>
       </View>
       <View style={styles.overlay}>
         <TextInput
           style={styles.input}
-          placeholder="Username"
+          placeholder="Usuario"
           value={email}
           onChangeText={setEmail}
         />
         <TextInput
           style={styles.input}
-          placeholder="Password"
+          placeholder="Contraseña"
           secureTextEntry={true}
           value={password}
           onChangeText={setPassword}
         />
-        <View style={styles.checkboxContainer}>
-          <CheckBox
-            size={16} 
-            title="Remember Password"
-            checked={rememberPassword}
-            onPress={toggleRememberPassword}
-            containerStyle={{ backgroundColor: 'transparent', borderWidth: 0 }}
-            textStyle={styles.commonText}
-          />
+        
+       
           <TouchableOpacity onPress={goTOOlvidoContraseña}>
-            <Text style={styles.forgotPasswordButton}>Forgot Password</Text>
+            <Text style={styles.forgotPasswordButton}>Te olvidaste de tu contraseña?</Text>
           </TouchableOpacity>
-        </View>
+        
 
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-          <Text style={styles.buttonLogin}>Login</Text>
+        <LinearGradient
+          colors={['#2aeefb','#c3f8ff']} 
+          start={{ x: 1, y: 0 }} 
+          end={{ x: 0, y: 0 }}
+          style={styles.buttonGradient}
+        >
+          <Text style={styles.buttonLogin}>INICIA SESIÓN</Text>
+        </LinearGradient>
         </TouchableOpacity>
+
+        <Text style={styles.text2}>¿No tienes cuenta?</Text>
         <TouchableOpacity style={styles.button} onPress={navigateToRegistro}>
-          <Text style={styles.buttonRegr}>Don't have an account? Sing Up</Text>
+       
+          <Text style={styles.buttonRegr}>Crea una aqui</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Gmailbuttom} onPress={handleGmail}>
           <Text style={styles.buttonGmail}>Ingresar con Gmail</Text>
@@ -93,6 +96,14 @@ export default function InicioSesion() {
 
 
 const styles = StyleSheet.create({
+
+  buttonGradient: {
+    flex: 2,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    
+  },
   background: {
     flex: 1,
     resizeMode: 'contain',
@@ -128,50 +139,53 @@ const styles = StyleSheet.create({
    
   },
   title: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: 'rgba(255, 255, 255, 0.9)',
+    
+    fontSize: 32,
+    fontStyle: 'italic',
+    marginTop:50,
+    color: '#ffff',
     marginBottom: 0,
   },
   input: {
 
     
+    fontWeight:'700',
     width: '90%',
-    height: 35,
+    height: 42,
     backgroundColor: 'rgba(255, 255, 255, 1)',
-    borderColor: 'gray',
-    
     marginBottom: 15,
     paddingLeft: 10,
-    borderRadius: 16,
+    borderRadius: 10,
+    borderWidth:2.5,
+    borderColor:'#2467cc'
   },
   loginButton: {
-    backgroundColor: 'rgba(0, 43, 255, 0.8)',
-    width: 200,
-    height: 33,
-    borderRadius: 16,
-    padding:5
+    backgroundColor: '#ffff',
+    width: 190,
+    height: 45,
+    borderRadius: 10,
+    shadowColor: '#000', 
+    shadowOpacity: 1, 
+    elevation: 10, 
+    
   },
 
   button: {
    
     padding: 10,
-    borderRadius: 20,
+    
   },
   buttonLogin: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+    color: '#1f308a',
+    fontSize:15,
+    lineHeight:40,
+    fontWeight:'900',
     textAlign: 'center',
+    
+    
   },
 
-  buttonRegr: {
-    color: '#0000FF',
-    fontSize: 10,
-    
-    textAlign: 'center',
-    marginBottom:10,
-  },
+  
 
   commonText: {
     color: '#0000FF',
@@ -180,39 +194,76 @@ const styles = StyleSheet.create({
     
   },
 
-  checkboxContainer: {
-    flexDirection: 'row', 
-    
-    alignItems: 'center',
-    marginBottom: 8,
-  },
+
   
   forgotPasswordButton: {
-    marginBottom: 0,
-    color: '#0000FF',
+
+    marginRight:-100,
+    
+    color: '#FFFF',
     fontSize: 10,
     textAlign: 'right',
+    marginBottom:20,
+    textDecorationLine: 'underline'
+    
   },
 
   buttonGmail: {
     color: '#000',
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: 10,
+    fontWeight: '400',
     textAlign: 'center',
     
 
   },
 
-  Gmailbuttom:{
+  Gmailbuttom: {
+    backgroundColor: '#60EEF8',
+    borderRadius: 15,
+    width: 185,
+    height: 25,
+    padding: 4,
+    marginBottom: -50,
+    borderWidth:2,
+    borderColor:'#68bcd5',
+    shadowColor: '#68bcd5', 
     
-  backgroundColor:'rgba(255,255,255,0.7)',
-  borderRadius:15,
-  width:160,
-  height: 30,
-  padding:4,
-  marginBottom:-50
+  },
   
-  }
+  
+  
+  
+  
+
+  imageText: {
+    color: '#ffff',
+    fontStyle:'italic',
+    fontWeight:'200',
+    fontSize: 16,
+    marginTop:30,
+    marginBottom: 30,
+    marginRight:-100
+  },
+
+  text2:{
+
+    color: '#FFFF',
+    fontSize: 10,
+   marginTop:10,
+    marginLeft:-60,
+    marginBottom:-24,
+  },
+
+  buttonRegr: {
+    color: '#6c32ec',
+    fontSize: 10,
+    fontWeight:'800',
+    textDecorationLine:'underline',
+    marginLeft:95,
+    marginBottom:10,
+  },
+
+
 });
 
   
