@@ -31,11 +31,7 @@ export default function Registro() {
     console.log(`Ingresando con Gmail...`);
   };
 
-  const RbuttomPressed = () => {
-    setRbuttom(!Rbuttom);
-    const message = Rbuttom ? 'No recordar contraseña' : 'Recordar contraseña';
-    console.log(message);
-  };
+  
 
   return (
     <LinearGradient colors={['#60cbe3', '#ffff', '#ffff']} style={styles.container}>
