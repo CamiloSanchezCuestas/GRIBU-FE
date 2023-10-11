@@ -12,7 +12,7 @@ export default function NewPassword({ navigation }) {
     const handlePasswordChange = () => {
         if (newPassword === confirmPassword) {
             setMessage('La contraseña se cambió exitosamente');
-            setMessageColor('black'); // Color blanco si son iguales
+            setMessageColor('black'); 
             setButtonDisabled(true);
 
             setTimeout(() => {
@@ -20,11 +20,11 @@ export default function NewPassword({ navigation }) {
             }, 3000);
         } else {
             setMessage('Las contraseñas no coinciden');
-            setMessageColor('red'); // Color rojo si no coinciden
+            setMessageColor('red'); 
         }
     };
 
-    const [messageColor, setMessageColor] = useState(''); // Agregar este estado para el color del mensaje
+    const [messageColor, setMessageColor] = useState(''); 
 
     return (
         <LinearGradient
