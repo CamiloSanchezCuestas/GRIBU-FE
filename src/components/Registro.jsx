@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { CheckBox } from 'react-native-elements';
+
 
 export default function Registro() {
   const [Rbuttom, setRbuttom] = useState(false);
@@ -47,7 +47,7 @@ export default function Registro() {
         <TextInput
           style={styles.input}
           placeholder="Nombre"
-          value={Usuario}
+          value={Nombre}
           onChangeText={setNombre}
         />
         <TextInput
