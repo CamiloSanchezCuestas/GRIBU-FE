@@ -150,7 +150,6 @@ const styles = StyleSheet.create({
 
     
     fontWeight:'700',
-    
     width: '90%',
     height: 42,
     backgroundColor: 'rgba(255, 255, 255, 1)',
