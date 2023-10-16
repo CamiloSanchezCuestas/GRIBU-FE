@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, Text, Image, StyleSheet, View, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
+import CustomBottomBar from './NavegationBar';
 
 const HomeScreen = ({ navigation }) => {
     const goToVimeoPlayer = () => {
@@ -86,36 +87,12 @@ const HomeScreen = ({ navigation }) => {
                     </View>
                 </View>
             </ScrollView>
-                <TouchableOpacity onPress={goToLook} style={styles.lupacontainer}>
-                    <Image
-                        source={require('../../assets/icons/Lupa.png')}
-                        style={styles.Lupa}
-                        resizeMode="contain"
-                    />
-                </TouchableOpacity>
-            <View style={styles.bottomBar}>
-                <TouchableOpacity onPress={goToLogin}>
-                        <Image
-                            source={require('../../assets/icons/Home.png')}
-                            style={styles.HomePic}
-                            resizeMode="contain"
-                        />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToProfile}>
-                        <Image
-                            source={require('../../assets/icons/Stats.png')}
-                            style={styles.StatsPic}
-                            resizeMode="contain"
-                        />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToProfile}>
-                    <Image
-                        source={require('../../assets/icons/Profile.png')}
-                        style={styles.ProfilePic}
-                        resizeMode="contain"
-                    />
-                </TouchableOpacity>
-            </View>
+
+            <CustomBottomBar
+                goToProfile={goToProfile}
+                goToHome={goToLogin} // Cambiado el nombre de la función para que coincida con tu Home button
+                goToStats={goToProfile} // Cambiado el nombre de la función para que coincida con tu Stats button
+            />
         </SafeAreaView>
     );
 }
@@ -157,27 +134,7 @@ const styles = StyleSheet.create({
         bottom: 150,
         right: 10,
     },
-    ProfilePic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        right: 10
-    },
-    HomePic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        left: 10
-    },
-    StatsPic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        right: 70
-    },
+    
     sub: {
         color: '#0032b3',
         fontSize: 16,
@@ -202,14 +159,7 @@ const styles = StyleSheet.create({
         fontSize: 9,
         textAlign: 'center'
     },
-    bottomBar: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        height: 80,
-        backgroundColor: '#60eef8',
-    },
+    
 });
 
 export default HomeScreen;
