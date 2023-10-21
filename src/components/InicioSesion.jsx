@@ -181,9 +181,7 @@ const styles = StyleSheet.create({
     fontSize:15,
     lineHeight:40,
     fontWeight:'900',
-    textAlign: 'center',
-    
-    
+    textAlign: 'center', 
   },
 
   
@@ -260,8 +258,9 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight:'800',
     textDecorationLine:'underline',
-    marginLeft:95,
-    marginBottom:10,
+    marginLeft: 120,
+    marginBottom: 5,
+    marginTop: 2,
   },
 
 

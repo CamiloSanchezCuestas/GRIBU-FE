@@ -39,14 +39,14 @@ const VimeoPlayer = () => {
 
       <Vimeo
         style={styles.vimeoPlayer}
-        videoId={'861756713'}
+        videoId={'702700301'}
         params={'api=1&autoplay=1'}
-        handlers={videoCallbacks}
+        handlers={videoCallbacks}c
       />
 
       <View style={styles.textContainer}>
         <Text style={styles.text}>
-          Pasos para escuchar con atención y generar una conexión
+          Como recibir feedback negativo
         </Text>
       </View>
 
@@ -60,6 +60,17 @@ const VimeoPlayer = () => {
           fullStarColor="gold"
         />
       </View>
+
+      <View style={styles.HerramientasContainer}>
+      <Text style={styles.textButtom}>
+      <TouchableOpacity style={styles.HerramientasImage} onPress={() => navigation.navigate('HomeScreen')}>
+        <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas} />
+      </TouchableOpacity>
+      hola
+      </Text>
+      </View>
+
+      
 
       <CustomBottomBar
         style={styles.navigation}
@@ -94,18 +105,44 @@ const styles = StyleSheet.create({
   starRatingContainer: {
     alignItems: 'flex-start',
     paddingLeft: 15,
-    paddingBottom:250
+    paddingBottom:10
    
   },
   textContainer: {
     backgroundColor: '#f5f4f4',
     margin: 10,
-    alignItems: 'center',
+    alignItems: 'Left',
+    
   },
-  text: {
+  text: {   
     color: 'black',
     fontSize: 16,
+    marginLeft:5
   },
+
+  HerramientasContainer:{
+    alignItems: 'flex-start',
+    paddingLeft: 15,
+    paddingBottom:220 
+
+  },
+  ImageHerramientas:{
+    width: 40,
+    height: 40,
+
+  },
+
+  HerramientasImage:{
+    paddingLeft:0,
+
+  },
+
+  textButtom:{
+
+
+
+}
+
 });
 
 export default VimeoPlayer;
