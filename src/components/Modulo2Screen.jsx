@@ -2,13 +2,13 @@ import React from "react";
 import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-
+import CustomBottomBar from './NavegationBar';
 
 const Modulo2Screen = ({ navigation}) => {
     const goToProfile = () => {
         navigation.navigate('Profile')
     };
-    const goToLogin = () => {
+    const goToHomeScreen = () => {
         navigation.navigate('HomeScreen')
     }
 
@@ -31,29 +31,11 @@ const Modulo2Screen = ({ navigation}) => {
                     resizeMode="contain"
                 />
             </ScrollView>
-            <View style={styles.bottomBar}>
-                <TouchableOpacity onPress={goToLogin}>
-                        <Image
-                            source={require('../../assets/icons/Home.png')}
-                            style={styles.HomePic}
-                            resizeMode="contain"
-                        />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToProfile}>
-                        <Image
-                            source={require('../../assets/icons/Stats.png')}
-                            style={styles.StatsPic}
-                            resizeMode="contain"
-                        />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToProfile}>
-                    <Image
-                        source={require('../../assets/icons/Profile.png')}
-                        style={styles.ProfilePic}
-                        resizeMode="contain"
-                    />
-                </TouchableOpacity>
-            </View>
+            <CustomBottomBar
+                goToProfile={goToProfile}
+                goToHome={goToHomeScreen} 
+                goToStats={goToProfile} 
+            />
         </SafeAreaView>
     );
 }

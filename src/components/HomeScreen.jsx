@@ -87,11 +87,17 @@ const HomeScreen = ({ navigation }) => {
                     </View>
                 </View>
             </ScrollView>
-
+                <TouchableOpacity onPress={goToLook} style={styles.lupacontainer}>
+                            <Image
+                                source={require('../../assets/icons/Lupa.png')}
+                                style={styles.Lupa}
+                                resizeMode="contain"
+                            />
+                </TouchableOpacity>
             <CustomBottomBar
                 goToProfile={goToProfile}
-                goToHome={goToLogin} // Cambiado el nombre de la función para que coincida con tu Home button
-                goToStats={goToProfile} // Cambiado el nombre de la función para que coincida con tu Stats button
+                goToHome={goToLogin} 
+                goToStats={goToProfile} 
             />
         </SafeAreaView>
     );
