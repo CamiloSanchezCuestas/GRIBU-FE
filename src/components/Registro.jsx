@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 
 export default function Registro() {
-  const [Rbuttom, setRbuttom] = useState(false);
+  
   const navigation = useNavigation();
 
   const navigateToInicioSesion = () => {
@@ -25,6 +25,8 @@ export default function Registro() {
     }
 
     console.log(`Registrando Nombre: ${Nombre}, Registrando usuario: ${Usuario}, correo electrónico: ${Email}, contraseña: ${Password}`);
+    navigation.navigate('HomeScreen')
+  
   };
 
   const handleGmail = () => {

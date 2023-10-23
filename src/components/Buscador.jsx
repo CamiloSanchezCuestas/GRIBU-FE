@@ -3,7 +3,7 @@ import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpaci
 import imageInsideInput from '../../assets/icons/LupaNormal.png';
 import fondoImagen from '../../assets/images/LupaBG.png';
 import returnimg from '../../assets/icons/return.png';
-
+import CustomBottomBar from './NavegationBar';
 
 
 const Buscador = ({navigation}) => {
@@ -15,7 +15,7 @@ const Buscador = ({navigation}) => {
     const goToHomeScreen = () => {
         navigation.navigate('HomeScreen')
     }
-
+    
     const handleSearch = () => {
         // Aquí puedes implementar la lógica para realizar la búsqueda
         console.log("Búsqueda realizada:", searchText);
@@ -40,30 +40,12 @@ const Buscador = ({navigation}) => {
                     <Image source={imageInsideInput} style={styles.imageInsideInput}/>
                 </TouchableOpacity>
             </View>
-
-            <View style={styles.bottomBar}>
-                <TouchableOpacity onPress={goToHomeScreen}>
-                        <Image
-                            source={require('../../assets/icons/Home.png')}
-                            style={styles.HomePic}
-                            resizeMode="contain"
-                        />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToProfile}>
-                        <Image
-                            source={require('../../assets/icons/Stats.png')}
-                            style={styles.StatsPic}
-                            resizeMode="contain"
-                        />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={goToProfile}>
-                    <Image
-                        source={require('../../assets/icons/Profile.png')}
-                        style={styles.ProfilePic}
-                        resizeMode="contain"
-                    />
-                </TouchableOpacity>
-            </View>
+            <CustomBottomBar
+                goToProfile={goToProfile}
+                goToHome={goToHomeScreen} 
+                goToStats={goToProfile} 
+            />
+            
         </SafeAreaView>
         
     );
