@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 2
   },
   buttonActive: {
-    backgroundColor: 'blue',
+    backgroundColor: 'green',
   },
   buttonInactive: {
     backgroundColor: 'gray',
