@@ -172,7 +172,8 @@ const styles = StyleSheet.create({
     DayCountContainer: {
         position: 'absolute',
         flex: 1,
-        zIndex: 1
+        zIndex: 1,
+        marginLeft: 15
     }
 });
 
