@@ -12,7 +12,7 @@ export default function NewPassword({ navigation }) {
     const handlePasswordChange = () => {
         if (newPassword === confirmPassword) {
             setMessage('La contraseña se cambió exitosamente');
-            setMessageColor('black'); 
+           
             setButtonDisabled(true);
 
             setTimeout(() => {
@@ -20,7 +20,7 @@ export default function NewPassword({ navigation }) {
             }, 3000);
         } else {
             setMessage('Las contraseñas no coinciden');
-            setMessageColor('red'); 
+            
         }
     };
 
@@ -52,7 +52,7 @@ export default function NewPassword({ navigation }) {
                 
             <TouchableOpacity style={styles.SendButton} onPress={handlePasswordChange}>
                 <LinearGradient
-                    colors={['#480899', '#8730f7']}
+                    colors={['#480899','#8730f7']}
                     start={{ x: 1, y: 0 }}
                     end={{ x: 0, y: 0 }}
                     style={{ ...styles.buttonGradient, borderRadius: 10 }}
@@ -61,7 +61,7 @@ export default function NewPassword({ navigation }) {
                 </LinearGradient>
             </TouchableOpacity>
             
-            <Text style={{ ...styles.errorText, color: messageColor }}>{message}</Text>
+            <Text style={{ ...styles.errorText, color: "black" }}>{message}</Text>
         </View>
     </LinearGradient>
     );

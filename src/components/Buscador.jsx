@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpacity, TextInput, Button, Touchable } from "react-native";
 import imageInsideInput from '../../assets/icons/LupaNormal.png';
 import fondoImagen from '../../assets/images/LupaBG.png';
-import returnimg from '../../assets/icons/return.png';
 import CustomBottomBar from './NavegationBar';
 
 
@@ -25,8 +24,8 @@ const Buscador = ({navigation}) => {
         <SafeAreaView style={styles.container}>
             <Image source={fondoImagen} style={styles.backgroundImage} />
             
-            <TouchableOpacity onPress={goToHomeScreen}>
-                <Image source={returnimg} style={styles.returnimg}/>
+            <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('HomeScreen')}>
+                <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} />
             </TouchableOpacity>
 
             <View style={styles.searchContainer}>
@@ -117,13 +116,18 @@ const styles = StyleSheet.create({
         left: 140,
         top: -48 
     },
-    returnimg: {
+    buttonImage: {
         position: 'absolute',
-        top: 20,
-        left: 20, 
-        width: 70, 
-        height: 70, 
-    }
+        top: 50,
+        left: 10,
+        zIndex: 1,
+      },
+      imageButton: {
+        width: 60,
+        height: 60,
+      },
+
+      
 });
 
 export default Buscador;

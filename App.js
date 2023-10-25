@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/components/HomeScreen';
 import VimeoPlayer from './src/components/VimeoPlayer';
+import Descargables from './src/components/Descargables'
 import InicioSesion from './src/components/InicioSesion';
 import Registro from './src/components/Registro';
 import Modulo1Screen from './src/components/Modulo1Screen';
@@ -35,6 +36,11 @@ const App = () => {
             <Stack.Screen
                 name="VimeoPlayer"
                 component={VimeoPlayer}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
+                name="Descargables"
+                component={Descargables}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen

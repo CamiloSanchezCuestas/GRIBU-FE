@@ -31,6 +31,8 @@ const VimeoPlayer = () => {
     ended: (data) => console.log('ended: ', data),
   };
 
+  
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('HomeScreen')}>
@@ -63,7 +65,7 @@ const VimeoPlayer = () => {
 
       <View style={styles.HerramientasContainer}>
       <Text style={styles.textButtom}>
-      <TouchableOpacity style={styles.HerramientasImage} onPress={() => navigation.navigate('HomeScreen')}>
+      <TouchableOpacity style={styles.HerramientasImage} onPress={() => navigation.navigate('Descargables')}>
         <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas} />
       </TouchableOpacity>
       hola
@@ -78,6 +80,7 @@ const VimeoPlayer = () => {
         goToHome={goToLogin}
         goToStats={goToProfile}
       />
+      
     </View>
   );
 };
@@ -119,6 +122,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft:5
   },
+
+
 
   HerramientasContainer:{
     alignItems: 'flex-start',
