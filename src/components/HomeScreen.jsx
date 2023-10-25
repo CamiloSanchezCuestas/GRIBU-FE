@@ -30,7 +30,7 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <DayCount/>
+            <View style={styles.DayCountContainer}><DayCount/></View>
             <ScrollView contentContainerStyle={styles.MainClassContainer}>
                 
                 <Text style={styles.sub}>
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: -100
+        marginTop: 40
     },
     ClassBlock: {
         flexDirection: 'row',
@@ -144,7 +144,6 @@ const styles = StyleSheet.create({
         bottom: 150,
         right: 10,
     },
-    
     sub: {
         color: '#0032b3',
         fontSize: 16,
@@ -170,6 +169,11 @@ const styles = StyleSheet.create({
         fontSize: 9,
         textAlign: 'center'
     },
+    DayCountContainer: {
+        position: 'absolute',
+        flex: 1,
+        zIndex: 1
+    }
 });
 
 export default HomeScreen;
