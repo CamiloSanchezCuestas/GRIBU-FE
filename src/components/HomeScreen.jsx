@@ -3,6 +3,7 @@ import { ScrollView, Text, Image, StyleSheet, View, TouchableOpacity, SafeAreaVi
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import CustomBottomBar from './NavegationBar';
+import DayCount from './DayCount';
 
 const HomeScreen = ({ navigation }) => {
     const goToVimeoPlayer = () => {
@@ -29,7 +30,9 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
+            <DayCount/>
             <ScrollView contentContainerStyle={styles.MainClassContainer}>
+                
                 <Text style={styles.sub}>
                     Lecciones recomendadas para hoy
                 </Text>
@@ -112,6 +115,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        marginTop: -100
     },
     ClassBlock: {
         flexDirection: 'row',
@@ -128,7 +132,7 @@ const styles = StyleSheet.create({
     Recommendedclass: {
         width: 360,
         height: 640,
-        marginTop: -220
+        //marginTop: -220
     },
     Lupa: {
         width: 50,
@@ -146,6 +150,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
         marginLeft: -80,
+        marginBottom: -220
     },
     title: {
         color: '#0032b3',
@@ -165,7 +170,6 @@ const styles = StyleSheet.create({
         fontSize: 9,
         textAlign: 'center'
     },
-    
 });
 
 export default HomeScreen;
