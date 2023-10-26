@@ -30,9 +30,9 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.DayCountContainer}><DayCount/></View>
+            
             <ScrollView contentContainerStyle={styles.MainClassContainer}>
-                
+                <View style={styles.DayCountContainer}><DayCount/></View>
                 <Text style={styles.sub}>
                     Lecciones recomendadas para hoy
                 </Text>
@@ -132,7 +132,10 @@ const styles = StyleSheet.create({
     Recommendedclass: {
         width: 360,
         height: 640,
-        //marginTop: -220
+        margin: 'auto',
+        display: 'flex',
+        alignItems: 'center',
+        flexDirection: 'column'
     },
     Lupa: {
         width: 50,
@@ -170,10 +173,10 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     DayCountContainer: {
-        position: 'absolute',
+        position: 'relative',
+        top: 0,
         flex: 1,
-        zIndex: 1,
-        marginLeft: 15
+        margin: 'auto'
     }
 });
 

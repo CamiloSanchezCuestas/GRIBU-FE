@@ -3,6 +3,7 @@ import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpaci
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import CustomBottomBar from './NavegationBar';
+import RutasRecomendadas from "./RutasRecomendadas";
 
 const Modulo1Screen = ({ navigation}) => {
     const goToProfile = () => {
@@ -25,11 +26,14 @@ const Modulo1Screen = ({ navigation}) => {
                 />
             </TouchableOpacity>
             <ScrollView style={styles.MainContainer}>
-            <Image
+                <Image
                     source={require('../../assets/images/HabilidadesProfesionales.png')}
                     style={styles.Headerimg}
                     resizeMode="contain"
                 />
+                <View>
+                    <RutasRecomendadas/>
+                </View>
             </ScrollView>
             <CustomBottomBar
                 goToProfile={goToProfile}
