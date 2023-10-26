@@ -1,11 +1,14 @@
 import React from "react";
 import { ScrollView, Text, View, Image, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Profile = () => {
     return (
-        <Text>
-            Esta es la página de su perfil
-        </Text>
+        <SafeAreaView>
+            <Text>
+                Esta es la página de su perfil
+            </Text>
+        </SafeAreaView>
     );
 }
 

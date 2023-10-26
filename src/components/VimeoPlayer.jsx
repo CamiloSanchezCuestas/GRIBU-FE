@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   vimeoPlayer: {
     margin: 10,
-    top:60
+    top: 60,
   },
   starRatingContainer: {
     alignItems: 'flex-start',

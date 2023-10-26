@@ -20,7 +20,10 @@
     "react-native": "0.72.5",
     "react-native-elements": "^3.4.3",
     "react-native-star-rating": "^1.1.0",
-    "react-native-vimeo-iframe": "^1.2.1"
+    "react-native-vimeo-iframe": "^1.2.1",
+    "react-native-web": "~0.19.6",
+    "react-dom": "18.2.0",
+    "@expo/webpack-config": "^19.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
