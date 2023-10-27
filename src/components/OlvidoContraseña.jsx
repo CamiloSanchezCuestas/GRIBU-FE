@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ImageBackground,Modal } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -8,14 +8,24 @@ export default function OlvidoContraseña() {
 
     const [Email, setEmail] = useState('');
     const [error, setError] = useState('');
-
+    const [showInputBox, setShowInputBox] = useState(false);
+    
     const handleSendPassword = () => {
         if (!Email.includes('@')) {
             setError('Ingresa un email válido');
         } else {
             setError('');
-            navigation.navigate('NewPassword');
+             setTimeout(() => {
+                setShowInputBox(true); 
+                setTimeout(() => {
+                    setShowInputBox(false);
+                    navigation.navigate('NewPassword'); 
+                  }, 3000);
+                }, 3000);
+              
         }
+
+       
     };
 
     return (
@@ -50,15 +60,30 @@ export default function OlvidoContraseña() {
                 <Text style={styles.text}> registro para cambiar tu contraseña </Text>
             </View>
 
-            {/* Agregar imagen que funciona como botón para ir a InicioSesion */}
+           
             <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('InicioSesion')}>
                 <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} />
             </TouchableOpacity>
+            {showInputBox && (
+          <Modal transparent={true} animationType="slide">
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>SE HAN ENVIADO LAS INDICACIONES AL CORREO REGISTRADO </Text>
+              </View>
+            </View>
+          </Modal>
+        )}
         </LinearGradient>
     );
 }
 
 const styles = StyleSheet.create({
+
+    centeredView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      },
     container: {
         flex: 1,
         alignItems: 'center',
@@ -145,4 +170,21 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
     },
+
+    modalView: {
+        margin: 20,
+        backgroundColor: "white",
+        borderRadius: 20,
+        padding: 35,
+        alignItems: "center",
+        borderWidth:2,
+        borderColor:"#1878ec"
+      },
+      modalText: {
+        fontSize: 25,
+        marginBottom: 30,
+        textAlign: "center",
+        fontWeight:'900',
+        color:"#004aad"
+      },
 });

@@ -30,9 +30,9 @@ const HomeScreen = ({ navigation }) => {
 
     return (
         <SafeAreaView style={styles.container}>
-            
+            <View style={styles.DayCountContainer}><DayCount/></View>
             <ScrollView contentContainerStyle={styles.MainClassContainer}>
-                <View style={styles.DayCountContainer}><DayCount/></View>
+                
                 <Text style={styles.sub}>
                     Lecciones recomendadas para hoy
                 </Text>
@@ -112,10 +112,12 @@ const styles = StyleSheet.create({
         marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     MainClassContainer: {
-        flex: 1,
+        
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 40
+        marginTop: 40,
+        paddingBottom:10
+        
     },
     ClassBlock: {
         flexDirection: 'row',
@@ -174,7 +176,7 @@ const styles = StyleSheet.create({
     },
     DayCountContainer: {
         position: 'relative',
-        top: 0,
+        top: 60,
         flex: 1,
         margin: 'auto'
     }
