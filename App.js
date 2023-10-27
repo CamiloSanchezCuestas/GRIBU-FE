@@ -5,6 +5,7 @@ import HomeScreen from './src/components/HomeScreen';
 import VimeoPlayer from './src/components/VimeoPlayer';
 import Descargables from './src/components/Descargables'
 import InicioSesion from './src/components/InicioSesion';
+import CambioContraseña from './src/components/CambioContraseña';
 import Registro from './src/components/Registro';
 import Modulo1Screen from './src/components/Modulo1Screen';
 import Modulo2Screen from './src/components/Modulo2Screen';
@@ -25,6 +26,11 @@ const App = () => {
             <Stack.Screen
                 name="InicioSesion"
                 component={InicioSesion}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
+                name="CambioContraseña"
+                component={CambioContraseña}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen
