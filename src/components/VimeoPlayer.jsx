@@ -4,6 +4,8 @@ import { useNavigation } from '@react-navigation/native';
 import { Vimeo } from 'react-native-vimeo-iframe';
 import StarRating from 'react-native-star-rating';
 import CustomBottomBar from './NavegationBar';
+import RutasRecomendadas from "./RutasRecomendadas";
+import { ScrollView } from 'react-native-gesture-handler';
 
 const VimeoPlayer = () => {
   const navigation = useNavigation();
@@ -34,6 +36,8 @@ const VimeoPlayer = () => {
   
 
   return (
+
+  
     <View style={styles.container}>
       <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('HomeScreen')}>
         <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} />
@@ -66,11 +70,23 @@ const VimeoPlayer = () => {
       <View style={styles.HerramientasContainer}>
       <Text style={styles.textButtom}>
       <TouchableOpacity style={styles.HerramientasImage} onPress={() => navigation.navigate('Descargables')}>
-        <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas} />
-      </TouchableOpacity>
-      hola
-      </Text>
+      <View style={styles.HerramientasContent}>
+      <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas} />
+      <Text style={styles.textButtom}>Mira tus herramientas aquí</Text>
       </View>
+      </TouchableOpacity>
+      
+      </Text >
+      <View style={styles.TextoRecContainer}>
+      <Text style={styles.TextoRec}>Lecciones recomendadas</Text>
+      </View>
+      
+
+      <View style={styles.RecomendadosContainer}>
+           <RutasRecomendadas/>
+      </View>
+      </View>
+
 
       
 
@@ -128,26 +144,44 @@ const styles = StyleSheet.create({
   HerramientasContainer:{
     alignItems: 'flex-start',
     paddingLeft: 15,
-    paddingBottom:220 
+    paddingBottom:200, 
+    
 
   },
   ImageHerramientas:{
     width: 40,
     height: 40,
-
+  
   },
 
-  HerramientasImage:{
-    paddingLeft:0,
+  
 
+  RecomendadosContainer:{
+    marginBottom:-350
   },
-
   textButtom:{
+    fontStyle:'italic',
+    fontWeight:'500'
 
+  },
+  HerramientasContent:{
+    flexDirection: 'row',
+    alignItems: 'center',
 
+  },
 
-}
+  TextoRecContainer:{
 
+    paddingTop:20,
+    
+
+  },
+
+  TextoRec:{
+
+    fontSize:17,
+    fontWeight:'900'
+  }
 });
 
 export default VimeoPlayer;

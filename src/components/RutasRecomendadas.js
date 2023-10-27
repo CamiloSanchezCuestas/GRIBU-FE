@@ -66,11 +66,13 @@ const styles = StyleSheet.create ({
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        alignItems: 'center'
+        
     },
     subcontainer: {
         width: '40%',
-        marginBottom: 15
+        marginBottom: 10,
+        marginLeft:10,
+        marginRight:25
     },
     Sub: {
         fontSize: 10,
@@ -80,7 +82,7 @@ const styles = StyleSheet.create ({
         fontSize: 8
     },
     img: {
-        width: '90%',
+        width: '100%',
         height: 'auto',
         aspectRatio: 1,
     }

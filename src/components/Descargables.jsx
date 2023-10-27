@@ -1,45 +1,70 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Platform, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import CustomBottomBar from './NavegationBar';
 import * as FileSystem from 'expo-file-system';
+import Constants from 'expo-constants';
+import * as MediaLibrary from 'expo-media-library';
+import CustomBottomBar from './NavegationBar';
 
 const Descargables = () => {
   const navigation = useNavigation();
-
+ 
   const goToProfile = () => {
-    navigation.navigate('Profile');
+     navigation.navigate('Profile');
   };
-
+ 
   const goToHomeScreen = () => {
-    navigation.navigate('HomeScreen');
+     navigation.navigate('HomeScreen');
+  };
+ 
+  const downloadFile = async () => {
+     try {
+       
+ 
+       const fileUri = 'https://github.com/SantiagoNeira21/ImagenesGRIBU/blob/main/CMUAA.png?raw=true.png';
+       const extension = fileUri.split('.').pop();
+       const { uri } = await FileSystem.downloadAsync(
+         fileUri,
+         FileSystem.documentDirectory + 'IMAGENCMUAA.' + extension
+       );
+       
+       saveFile(uri);
+ 
+     } catch (error) {
+       console.error('Error while downloading:', error);
+       Alert.alert('Download error', 'An error occurred while downloading the file.', [{ text: 'OK' }]);
+     }
   };
 
-  const downloadFile = async () => {
-    const fileUri = 'https://sheetjs.com/pres. Numbers';
-    const fileUriComponents = fileUri.split('/');
-    const fileName = fileUriComponents[fileUriComponents.length - 1];
-    const destinationUri = `${FileSystem.documentDirectory}${fileName}`;
-
-    const callback = (downloadProgress) => {
-      const progress = downloadProgress.totalBytesWritten / downloadProgress.totalBytesExpectedToWrite;
-      console.log(progress);
-    };
-
-    const downloadResumable = FileSystem.createDownloadResumable(fileUri, destinationUri, {}, callback);
-
+  const downloadFile1 = async () => {
     try {
-      const result = await downloadResumable.downloadAsync();
-      if (result.status === 200) {
-        console.log('File downloaded successfully:', result.uri);
-      } else {
-        console.error('Failed to download file. HTTP status:', result.status);
-      }
+      
+
+      const fileUri = 'https://github.com/SantiagoNeira21/ImagenesGRIBU/blob/main/CRETPEF.png?raw=true.png';
+      const extension = fileUri.split('.').pop();
+      const { uri } = await FileSystem.downloadAsync(
+        fileUri,
+        FileSystem.documentDirectory + 'IMAGENCMUAA.' + extension
+      );
+      
+      saveFile(uri);
+
     } catch (error) {
       console.error('Error while downloading:', error);
+      Alert.alert('Download error', 'An error occurred while downloading the file.', [{ text: 'OK' }]);
     }
-  };
+ };
 
+  const saveFile = async (fileUri) => {
+    const { status } = await MediaLibrary.requestPermissionsAsync();
+    if (status === "granted") {
+        const asset = await MediaLibrary.createAssetAsync(fileUri);
+        await MediaLibrary.createAlbumAsync("Download", asset, false);
+        
+    } else {
+        Alert.alert('Save to gallery permission denied', 'Please grant permission to save the file to the gallery.', [{ text: 'OK' }]);
+    }
+  }; 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('VimeoPlayer')}>
@@ -55,7 +80,7 @@ const Descargables = () => {
           </TouchableOpacity>
         </TouchableOpacity>
         <TouchableOpacity style={styles.card}>
-          <TouchableOpacity style={styles.cardTextContainer} onPress={() => navigation.navigate('VimeoPlayer')}>
+          <TouchableOpacity style={styles.cardTextContainer} onPress={downloadFile1}>
             <Image source={require('../../assets/images/CRETPEF.png')} style={styles.imagepdf2} />
           </TouchableOpacity>
         </TouchableOpacity>
@@ -106,7 +131,7 @@ const styles = StyleSheet.create({
     width: 250,
     height: 250,
     padding: 16,
-    marginLeft: 30,
+    marginLeft: 40,
     borderRadius: 8,
     alignItems: 'center',
   },
