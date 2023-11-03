@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollViewBase } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Vimeo } from 'react-native-vimeo-iframe';
 import StarRating from 'react-native-star-rating';
 import CustomBottomBar from './NavegationBar';
 import RutasRecomendadas from "./RutasRecomendadas";
 import { ScrollView } from 'react-native-gesture-handler';
+import BackButton from './BackButton';
 
 const VimeoPlayer = () => {
   const navigation = useNavigation();
@@ -15,7 +16,7 @@ const VimeoPlayer = () => {
     navigation.navigate('Profile');
   };
 
-  const goToLogin = () => {
+  const goToHomeScreen = () => {
     navigation.navigate('HomeScreen');
   };
 
@@ -33,29 +34,27 @@ const VimeoPlayer = () => {
     ended: (data) => console.log('ended: ', data),
   };
 
-  
-
   return (
-
-  
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('HomeScreen')}>
-        <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} />
-      </TouchableOpacity>
-
+      <View style={styles.container}>
+        <View style={styles.BBContainer}>
+          <BackButton
+            goBack={goToHomeScreen}
+          />
+        </View>
+        
+      <ScrollView>
       <Vimeo
-        style={styles.vimeoPlayer}
-        videoId={'702700301'}
-        params={'api=1&autoplay=1'}
-        handlers={videoCallbacks}c
-      />
-
+          style={styles.vimeoPlayer}
+          videoId={'702700301'}
+          params={'api=1&autoplay=1'}
+          handlers={videoCallbacks}c
+        />
+        <View style={styles.grandcontainer}>
       <View style={styles.textContainer}>
-        <Text style={styles.text}>
-          Como recibir feedback negativo
-        </Text>
+          <Text style={styles.text}>
+            Como recibir feedback negativo
+          </Text>
       </View>
-
       <View style={styles.starRatingContainer}>
         <StarRating
           disabled={false}
@@ -68,32 +67,25 @@ const VimeoPlayer = () => {
       </View>
 
       <View style={styles.HerramientasContainer}>
-      <Text style={styles.textButtom}>
-      <TouchableOpacity style={styles.HerramientasImage} onPress={() => navigation.navigate('Descargables')}>
-      <View style={styles.HerramientasContent}>
-      <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas} />
-      <Text style={styles.textButtom}>Mira tus herramientas aquí</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Descargables')}>
+        <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas} resizeMode='contain' />
+        </TouchableOpacity>
+        <Text style={styles.textButtom}>Mira tus herramientas aquí</Text>
       </View>
-      </TouchableOpacity>
-      
-      </Text >
       <View style={styles.TextoRecContainer}>
       <Text style={styles.TextoRec}>Lecciones recomendadas</Text>
       </View>
-      
-
-      <View style={styles.RecomendadosContainer}>
-           <RutasRecomendadas/>
+      <View>
+           <RutasRecomendadas
+            goToHomeScreen={goToHomeScreen}
+           />
       </View>
       </View>
-
-
-      
-
+      </ScrollView>
       <CustomBottomBar
         style={styles.navigation}
         goToProfile={goToProfile}
-        goToHome={goToLogin}
+        goToHome={goToHomeScreen}
         goToStats={goToProfile}
       />
       
@@ -102,85 +94,62 @@ const VimeoPlayer = () => {
 };
 
 const styles = StyleSheet.create({
-  buttonImage: {
-    position: 'absolute',
-    top: 50,
-    left: 10,
-    zIndex: 1,
-  },
-  imageButton: {
-    width: 60,
-    height: 60,
-  },
   container: {
     flex: 1,
-    paddingBottom: 100,
-    backgroundColor: '#FFFF',
-  },
-  vimeoPlayer: {
-    margin: 10,
-    top: 60,
+    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   starRatingContainer: {
     alignItems: 'flex-start',
-    paddingLeft: 15,
-    paddingBottom:10
-   
+    paddingLeft: '5%',
+    paddingVertical: '2%',
   },
   textContainer: {
-    backgroundColor: '#f5f4f4',
-    margin: 10,
     alignItems: 'Left',
-    
+    marginLeft: '6%',
   },
   text: {   
     color: 'black',
     fontSize: 16,
-    marginLeft:5
+    marginTop: '2%'
   },
-
-
-
   HerramientasContainer:{
-    alignItems: 'flex-start',
-    paddingLeft: 15,
-    paddingBottom:200, 
-    
-
+    marginLeft: '4%', 
+    // backgroundColor: 'gray',
+    width: '100%',
+    height: '8%',
   },
   ImageHerramientas:{
-    width: 40,
-    height: 40,
-  
-  },
-
-  
-
-  RecomendadosContainer:{
-    marginBottom:-350
+    width: '10%',
+    height: '90%',
   },
   textButtom:{
     fontStyle:'italic',
-    fontWeight:'500'
-
-  },
-  HerramientasContent:{
-    flexDirection: 'row',
-    alignItems: 'center',
-
+    fontWeight:'500',
+    position: 'absolute',
+    left: '10%',
+    top: '20%'
   },
 
   TextoRecContainer:{
-
-    paddingTop:20,
-    
-
+    paddingTop:'5%',
+    marginLeft: '8%'
   },
 
   TextoRec:{
-
     fontSize:17,
     fontWeight:'900'
+  },
+  BBContainer: {
+    width: '16%',
+    height: '8%',
+    left: '2%',
+    top: '5%',
+    // backgroundColor: 'gray', //esto es para revisar como se comporta el contenedor
+    marginBottom: '12%'
+  },
+  vimeoPlayer: {
+    width: '100%',
+    height: 228,
   }
 });
 

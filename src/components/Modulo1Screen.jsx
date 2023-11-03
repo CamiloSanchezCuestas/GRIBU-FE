@@ -1,44 +1,51 @@
 import React from "react";
-import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpacity } from "react-native";
+import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpacity, Platform } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import CustomBottomBar from './NavegationBar';
+import ProfilePicHeader from "./ProfilePicHeader";
 import RutasRecomendadas from "./RutasRecomendadas";
 
-const Modulo1Screen = ({ navigation}) => {
+const Modulo1Screen = ({ navigation }) => {
     const goToProfile = () => {
-        navigation.navigate('Profile')
+        navigation.navigate('Profile');
     };
     const goToHomeScreen = () => {
-        navigation.navigate('HomeScreen')
-    }
+        navigation.navigate('HomeScreen');
+    };
+    const goToLook = () => {
+        navigation.navigate('Buscador')
+    };
 
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.usertext}>
-                    Nicomontes9
+                Nicomontes9
             </Text>
-            <TouchableOpacity onPress={goToProfile}>
-                <Image
-                    source={require('../../assets/icons/Profile.png')}
-                    style={styles.ProfilePicHeader}
-                    resizeMode="contain"
+            <View style={styles.ProfilePicHeader}>
+                <ProfilePicHeader 
+                    goToProfile={goToProfile}
                 />
-            </TouchableOpacity>
-            <ScrollView style={styles.MainContainer}>
+            </View>
                 <Image
-                    source={require('../../assets/images/HabilidadesProfesionales.png')}
+                    source={require('../../assets/images/ComuRuta.png')}
                     style={styles.Headerimg}
                     resizeMode="contain"
                 />
-                <View>
-                    <RutasRecomendadas/>
+                <View style={styles.RCContainer}>
+                <RutasRecomendadas/>
                 </View>
-            </ScrollView>
+                <TouchableOpacity onPress={goToLook} style={styles.lupacontainer}>
+                    <Image
+                        source={require('../../assets/icons/Lupa.png')}
+                    style={styles.Lupa}
+                    resizeMode="contain"
+                    />
+                </TouchableOpacity>
             <CustomBottomBar
                 goToProfile={goToProfile}
-                goToHome={goToHomeScreen} 
-                goToStats={goToProfile} 
+                goToHome={goToHomeScreen}
+                goToStats={goToProfile}
             />
         </SafeAreaView>
     );
@@ -46,9 +53,9 @@ const Modulo1Screen = ({ navigation}) => {
 
 const styles = StyleSheet.create({
     usertext: {
-        fontSize: 20,
-        marginTop: 30,
-        marginLeft: 40,
+        fontSize: 20,  // Usar un porcentaje del tamaño de la pantalla
+        marginTop: '7%',   // Usar un porcentaje del tamaño de la pantalla
+        marginLeft: '5%', // Usar un porcentaje del tamaño de la pantalla
         color: '#0032b3',
         fontWeight: 'bold'
     },
@@ -56,52 +63,30 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
-    MainContainer: {
-        flex: 1,
-    },
-    ProfilePic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        right: 10
+    Headerimg: {
+        width: '90%',
+        alignSelf: 'center',
+        marginTop: '-20%'
     },
     ProfilePicHeader: {
-        width: 70,
-        height: 70,
-        marginTop: 5,
+        width: '15%',
         position: 'absolute',
         right: 10,
-        top: -60
     },
-    Headerimg: {
-        width: 320,
-        height: 110,
-        marginTop: 40,
-        marginLeft: 45,
+    RCContainer: {
+        marginBottom: '10%',
+        marginTop: '-20%'
     },
-    HomePic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        left: 10
+    Lupa: {
+        width: '12%',
+        //height: ,
+        opacity: 0.6
     },
-    StatsPic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        right: 70
-    },
-    bottomBar: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        height: 80,
-        backgroundColor: '#60eef8',
+    lupacontainer: {
+        position: 'relative',
+        bottom: '30%',
+        left: '85%',
     },
 });
 
-export default Modulo1Screen
+export default Modulo1Screen;

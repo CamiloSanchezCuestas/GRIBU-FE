@@ -85,16 +85,15 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 40,
-    marginBottom: -650
+    marginTop: '0%',
   },
   buttonsContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
   },
   button: {
-    width: 50,
-    height: 50,
+    width: '13%',
+    height: '200%',
     borderRadius: 50, // Para hacerlo circular
     borderWidth: 0,
     borderColor: 'null',
