@@ -4,6 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import CustomBottomBar from './NavegationBar';
 import DayCount from './DayCount';
+import ClaseRecomendada from './ClaseRecomendada';
+import MainOtrasClases from './MainOtrasClases';
+
 
 const HomeScreen = ({ navigation }) => {
     const goToVimeoPlayer = () => {
@@ -31,72 +34,35 @@ const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.DayCountContainer}><DayCount/></View>
-            <ScrollView contentContainerStyle={styles.MainClassContainer}>
-                
-                <Text style={styles.sub}>
-                    Lecciones recomendadas para hoy
-                </Text>
-                <View>
-                    <TouchableOpacity onPress={goToVimeoPlayer}>
-                        <Image
-                            source={require('../../assets/images/FEEDBACKN.png')}
-                            style={styles.Recommendedclass}
-                            resizeMode="contain"
-                        />
-                    </TouchableOpacity>
+            <ScrollView>
+                <View style={styles.Recommendedclass}>
+                <ClaseRecomendada
+                    goToVimeoPlayer={goToVimeoPlayer}
+                />
                 </View>
-                <Text style={styles.title}>
-                    Hola, Nicolás
-                </Text>
-                <Text style={styles.sub2}>
-                    ¿Qué área de tu vida quieres trabajar hoy?
-                </Text>
-                <View style={styles.ClassBlock}>
-                    <View style={styles.ClassInfo}>
-                        <Text style={styles.sub3}>
-                            Habilidades profesionales
-                        </Text>
-                        <TouchableOpacity onPress={goToMOD1} style={styles.ClassInfoimg}>
-                            <Image
-                                source={require('../../assets/images/HABILIDADES_PRO.png')}
-                                style={styles.ClassInfoimg}
-                                resizeMode="contain" 
-                            />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.ClassInfo}>
-                        <Text style={styles.sub3}>
-                            Gestión emocional
-                        </Text>
-                        <TouchableOpacity onPress={goToMOD2} style={styles.ClassInfoimg}>
-                            <Image
-                                source={require('../../assets/images/GE.png')}
-                                style={styles.ClassInfoimg}
-                                resizeMode="contain" 
-                            />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.ClassInfo}>
-                        <Text style={styles.sub3}>
-                            Comunicación
-                        </Text>
-                        <TouchableOpacity onPress={goToMOD3} style={styles.ClassInfoimg}>
-                            <Image
-                                source={require('../../assets/images/Comm.png')}
-                                style={styles.ClassInfoimg}
-                                resizeMode="contain" 
-                            />
-                        </TouchableOpacity>
-                    </View>
+                <View style={styles.texts}>
+                    <Text style={styles.title}>
+                        Hola, Nicolás
+                    </Text>
+                    <Text style={styles.sub2}>
+                        ¿Qué área de tu vida quieres trabajar hoy?
+                    </Text>
                 </View>
+                <View syle={styles.MainOtrasClases}>
+                    <MainOtrasClases
+                        goToMOD1={goToMOD1}
+                        goToMOD2={goToMOD2}
+                    />
+                </View>
+            
             </ScrollView>
-                <TouchableOpacity onPress={goToLook} style={styles.lupacontainer}>
-                            <Image
-                                source={require('../../assets/icons/Lupa.png')}
-                                style={styles.Lupa}
-                                resizeMode="contain"
-                            />
-                </TouchableOpacity>
+            <TouchableOpacity onPress={goToLook} style={styles.lupacontainer}>
+            <Image
+                source={require('../../assets/icons/Lupa.png')}
+                style={styles.Lupa}
+                resizeMode="contain"
+            />
+            </TouchableOpacity>
             <CustomBottomBar
                 goToProfile={goToProfile}
                 goToHome={goToLogin} 
@@ -111,74 +77,47 @@ const styles = StyleSheet.create({
         flex: 1,
         marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
-    MainClassContainer: {
-        
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 40,
-        paddingBottom:10
-        
-    },
-    ClassBlock: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    ClassInfo: {
-        flexDirection: 'column',
-        marginHorizontal: 2,  
-    },
-    ClassInfoimg: {
-        width: 120,
-        height: 180,
-    },
     Recommendedclass: {
-        width: 360,
-        height: 640,
-        margin: 'auto',
         display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column'
+        flex: 1,
+        marginBottom: '50%',
+        marginTop:'40%'
     },
     Lupa: {
-        width: 50,
-        height: 50,
+        width: '12%',
+        //height: ,
         opacity: 0.6
     },
     lupacontainer: {
-        position: 'absolute',
-        bottom: 150,
-        right: 10,
+        position: 'relative',
+        bottom: '15%',
+        left: '85%',
     },
-    sub: {
-        color: '#0032b3',
-        fontSize: 16,
-        fontWeight: 'bold',
-        marginLeft: -80,
-        marginBottom: -220
+    texts: {
+        marginLeft: '10%'
     },
     title: {
         color: '#0032b3',
         fontWeight: 'bold',
         fontSize: 30,
-        marginTop: -200,
-        marginLeft: -150
+        
     },
     sub2: {
         color: '#0032b3',
         fontSize: 14,
-        marginLeft: -60,
-        marginBottom: 10
-    },
-    sub3: {
-        color: '#1e67e2',
-        fontSize: 9,
-        textAlign: 'center'
+        
     },
     DayCountContainer: {
-        position: 'relative',
-        top: 60,
+        position: 'absolute',
+        top: '10%',
         flex: 1,
-        margin: 'auto'
+        margin: 'auto',
+        alignSelf: 'center',
+        zIndex: 1,
+    },
+    MainOtrasClases: {
+    display: 'flex',
+    flex: 1,
     }
 });
 

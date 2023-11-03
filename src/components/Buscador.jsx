@@ -3,7 +3,7 @@ import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpaci
 import imageInsideInput from '../../assets/icons/LupaNormal.png';
 import fondoImagen from '../../assets/images/LupaBG.png';
 import CustomBottomBar from './NavegationBar';
-
+import BackButton from "./BackButton";
 
 const Buscador = ({navigation}) => {
     const [searchText, setSearchText] = useState("");
@@ -24,9 +24,11 @@ const Buscador = ({navigation}) => {
         <SafeAreaView style={styles.container}>
             <Image source={fondoImagen} style={styles.backgroundImage} />
             
-            <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('HomeScreen')}>
-                <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} />
-            </TouchableOpacity>
+            <View style={styles.BBContainer}>
+                <BackButton
+                    goBack={goToHomeScreen}
+                />
+            </View>
 
             <View style={styles.searchContainer}>
                 <TextInput
@@ -36,7 +38,7 @@ const Buscador = ({navigation}) => {
                     onChangeText={setSearchText}
                 />
                 <TouchableOpacity onPress={handleSearch}>
-                    <Image source={imageInsideInput} style={styles.imageInsideInput}/>
+                    <Image source={imageInsideInput} style={styles.imageInsideInput} resizeMode="contain"/>
                 </TouchableOpacity>
             </View>
             <CustomBottomBar
@@ -61,72 +63,39 @@ const styles = StyleSheet.create({
         resizeMode: 'cover',
         position: 'absolute',
     },
-    text: {
-        fontSize: 20,
-        marginTop: 50,
-    },
-    HomePic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        left: 10
-    },
-    StatsPic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        right: 70
-    },
-    ProfilePic: {
-        width: 50,
-        height: 50,
-        marginTop: 5,
-        position: 'absolute',
-        right: 10
-    },
-    bottomBar: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        width: '100%',
-        height: 80,
-        backgroundColor: '#60eef8',
-    },
     searchContainer: {
-        alignItems: 'center',
+        width: '80%',
+        height: '5%',
+        alignSelf: 'center',
         justifyContent: 'center',
-        marginTop: 300,
+        marginTop: '70%',
+        //backgroundColor: 'gray',
+        //flexDirection: 'row'
     },
     searchInput: {
         fontWeight:'700',
-        width: '80%',
-        height: 42,
+        width: '100%',
+        height: '100%',
         backgroundColor: null,
-        marginBottom: 15,
-        paddingLeft: 10,
+        marginBottom: '0%',
+        paddingLeft: '3%',
         borderRadius: 20,
         borderWidth: 2.5,
         borderColor:'#27d8ff'
     },
     imageInsideInput: {
-        width: 22,
-        height: 22,
-        left: 140,
-        top: -48 
+        width: '15%',
+        height: '80%',
+        left: '85%',
+        bottom: '100%',
+        //backgroundColor: 'blue', 
     },
-    buttonImage: {
-        position: 'absolute',
-        top: 50,
-        left: 10,
-        zIndex: 1,
+      BBContainer: {
+        width: '16%',
+        height: '8%',
+        left: '2%',
+        // backgroundColor: 'gray', //esto es para revisar como se comporta el contenedor
       },
-      imageButton: {
-        width: 60,
-        height: 60,
-      },
-
       
 });
 
