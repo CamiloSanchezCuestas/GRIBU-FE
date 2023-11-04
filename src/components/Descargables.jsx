@@ -5,6 +5,7 @@ import * as FileSystem from 'expo-file-system';
 import Constants from 'expo-constants';
 import * as MediaLibrary from 'expo-media-library';
 import CustomBottomBar from './NavegationBar';
+import BackButton from './BackButton';
 
 const Descargables = () => {
   const navigation = useNavigation();
@@ -16,7 +17,9 @@ const Descargables = () => {
   const goToHomeScreen = () => {
      navigation.navigate('HomeScreen');
   };
- 
+  const goToVimeoPlayer = () => {
+    navigation.navigate('VimeoPlayer');
+  };
   const downloadFile = async () => {
      try {
        
@@ -67,23 +70,23 @@ const Descargables = () => {
   }; 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate('VimeoPlayer')}>
-        <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} />
-      </TouchableOpacity>
-      <View style={styles.header}>
-        <Image source={require('../../assets/icons/TusHerramientas.png')} style={styles.imageH} />
+      <View style={styles.BBContainer}>
+        <BackButton
+          goBack={goToVimeoPlayer}
+        />
       </View>
-      <View style={styles.content}>
-        <TouchableOpacity style={styles.card}>
-          <TouchableOpacity style={styles.cardTextContainer} onPress={downloadFile}>
-            <Image source={require('../../assets/images/CMUAA.png')} style={styles.imagepdf1} />
-          </TouchableOpacity>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.card}>
-          <TouchableOpacity style={styles.cardTextContainer} onPress={downloadFile1}>
-            <Image source={require('../../assets/images/CRETPEF.png')} style={styles.imagepdf2} />
-          </TouchableOpacity>
-        </TouchableOpacity>
+      <View style={styles.header}>
+        <Image source={require('../../assets/icons/TusHerramientas.png')} style={styles.imageH} resizeMode='contain' />
+      </View>
+      <View>
+          <View style={styles.card}>
+            <TouchableOpacity onPress={downloadFile}>
+              <Image source={require('../../assets/images/CMUAA.png')} style={styles.imagepdf1} resizeMode='contain' />
+            </TouchableOpacity>
+            <TouchableOpacity onPress={downloadFile1}>
+              <Image source={require('../../assets/images/CRETPEF.png')} style={styles.imagepdf2} resizeMode='contain' />
+            </TouchableOpacity>
+          </View>
       </View>
       <CustomBottomBar goToProfile={goToProfile} goToHome={goToHomeScreen} goToStats={goToProfile} />
     </View>
@@ -95,45 +98,42 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  buttonImage: {
-    position: 'absolute',
-    top: 50,
-    left: 10,
-    zIndex: 1,
-  },
-  imageButton: {
-    width: 60,
-    height: 60,
-  },
   imageH: {
-    width: 380,
-    height: 80,
+    width: '90%',
+    alignSelf: 'center'
+    //height: '50%',
   },
   imagepdf1: {
-    width: 380,
-    height: 220,
-    marginLeft: 82,
-    marginTop: -30,
+    width: '100%',
+    height: '90%',
   },
   imagepdf2: {
-    width: 383,
-    height: 228,
-    marginLeft: 82,
-    marginTop: -40,
+    width: '100%',
+    height: '90%',
+    marginTop: '-10%'
   },
   header: {
-    flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 30,
-    marginTop: 120,
+    marginBottom: '10%',
+    marginTop: '25%',
+    //backgroundColor: 'gray',
+    height: '10%'
   },
   card: {
-    width: 250,
-    height: 250,
-    padding: 16,
-    marginLeft: 40,
+    width: '90%',
+    height: '60%',
+    padding: '0%',
     borderRadius: 8,
-    alignItems: 'center',
+    alignSelf: 'center',
+    //backgroundColor: 'gray',
+    flexDirection: 'column',
+  },
+  BBContainer: {
+    width: '16%',
+    height: '8%',
+    left: '2%',
+    top: '5%'
+    // backgroundColor: 'gray', //esto es para revisar como se comporta el contenedor
   },
 });
 

@@ -61,18 +61,16 @@ const RutasRecomendadas = () => {
 
 const styles = StyleSheet.create ({
     grandcontainer: {
-        marginTop: 30,
-        alignItems: 'center',
+        marginTop: '0%',
+        //alignItems: 'center',
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        
     },
     subcontainer: {
         width: '40%',
-        marginBottom: 10,
-        marginLeft:10,
-        marginRight:25
+        marginBottom: '8%',
+        marginHorizontal: '3%'
     },
     Sub: {
         fontSize: 10,

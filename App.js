@@ -9,7 +9,6 @@ import CambioContraseña from './src/components/CambioContraseña';
 import Registro from './src/components/Registro';
 import Modulo1Screen from './src/components/Modulo1Screen';
 import Modulo2Screen from './src/components/Modulo2Screen';
-import Modulo3Screen from './src/components/Modulo3Screen';
 import Buscador from './src/components/Buscador';
 import Profile from './src/components/Profile';
 import OlvidoContraseña from './src/components/OlvidoContraseña'
@@ -62,11 +61,6 @@ const App = () => {
             <Stack.Screen
                 name="Modulo 2"
                 component={Modulo2Screen}
-                options={{ headerShown: false }} // Ocultar barra de navegación
-            />
-            <Stack.Screen
-                name="Modulo 3"
-                component={Modulo3Screen}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen
