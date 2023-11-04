@@ -5,7 +5,7 @@ import { Vimeo } from 'react-native-vimeo-iframe';
 import StarRating from 'react-native-star-rating';
 import CustomBottomBar from './NavegationBar';
 import RutasRecomendadas from "./RutasRecomendadas";
-import { ScrollView } from 'react-native-gesture-handler';
+
 
 const VimeoPlayer = () => {
   const navigation = useNavigation();
@@ -47,7 +47,7 @@ const VimeoPlayer = () => {
         style={styles.vimeoPlayer}
         videoId={'702700301'}
         params={'api=1&autoplay=1'}
-        handlers={videoCallbacks}c
+        handlers={videoCallbacks}
       />
 
       <View style={styles.textContainer}>
