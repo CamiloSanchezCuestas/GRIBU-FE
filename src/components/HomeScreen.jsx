@@ -29,6 +29,9 @@ const HomeScreen = ({ navigation }) => {
     };
     const goToLogin = () => {
         navigation.navigate('InicioSesion')
+    };
+    const goToStats = () => {
+        navigation.navigate('Stats')
     }
 
     return (
@@ -66,7 +69,7 @@ const HomeScreen = ({ navigation }) => {
             <CustomBottomBar
                 goToProfile={goToProfile}
                 goToHome={goToLogin} 
-                goToStats={goToProfile} 
+                goToStats={goToStats} 
             />
         </SafeAreaView>
     );

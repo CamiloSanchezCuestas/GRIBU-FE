@@ -12,8 +12,8 @@ const BackButton = ({goBack}) => {
 
 const styles = StyleSheet.create({
     imageButton: {
-        width: '100%',
-        height: '100%'
+        width: '90%',
+        height: '91.5%'
     }
 });
 

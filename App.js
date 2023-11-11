@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/components/HomeScreen';
 import VimeoPlayer from './src/components/VimeoPlayer';
@@ -13,6 +13,7 @@ import Buscador from './src/components/Buscador';
 import Profile from './src/components/Profile';
 import OlvidoContraseña from './src/components/OlvidoContraseña'
 import NewPassword from './src/components/NewPassword';
+import Stats from './src/components/Stats';
 
 const Stack = createStackNavigator();
 
@@ -28,6 +29,11 @@ const App = () => {
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen
+                name="Stats"
+                component={Stats}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
                 name="CambioContraseña"
                 component={CambioContraseña}
                 options={{ headerShown: false }} // Ocultar barra de navegación
@@ -35,7 +41,7 @@ const App = () => {
             <Stack.Screen
                 name="HomeScreen"
                 component={HomeScreen}
-                initialParams={{ user }}
+                //initialParams={{ user }}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen

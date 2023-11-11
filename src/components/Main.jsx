@@ -2,6 +2,7 @@ import React from "react";
 import Constants from 'expo-constants';
 import {View } from "react-native";
 
+
 import HomeScreen from "./HomeScreen";
 const Main = () => {
     return (

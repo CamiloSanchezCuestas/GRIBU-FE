@@ -8,6 +8,7 @@ import RutasRecomendadas from "./RutasRecomendadas";
 
 
 
+
 import { ScrollView } from 'react-native-gesture-handler';
 import BackButton from './BackButton';
 
@@ -55,11 +56,7 @@ const VimeoPlayer = () => {
       />
 
 
-          style={styles.vimeoPlayer}
-          videoId={'702700301'}
-          params={'api=1&autoplay=1'}
-          handlers={videoCallbacks}c
-        /
+    
         <View style={styles.grandcontainer}>
 
       <View style={styles.textContainer}>
@@ -80,7 +77,7 @@ const VimeoPlayer = () => {
 
       <View style={styles.HerramientasContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('Descargables')}>
-        <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas} resizeMode='contain' />
+        <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas}/>
         </TouchableOpacity>
         <Text style={styles.textButtom}>Mira tus herramientas aquí</Text>
       </View>
@@ -108,7 +105,6 @@ const VimeoPlayer = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
   starRatingContainer: {
     alignItems: 'flex-start',
@@ -126,6 +122,7 @@ const styles = StyleSheet.create({
   },
   HerramientasContainer:{
     marginLeft: '4%', 
+
     width: '100%',
     height: '8%',
   },
