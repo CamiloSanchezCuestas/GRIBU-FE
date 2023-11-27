@@ -11,10 +11,11 @@
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
-    "@react-navigation/native": "^6.1.8",
+    "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.18",
     "deprecated-react-native-prop-types": "^5.0.0",
-    "expo": "^49.0.13",
+    "expo": "^49.0.17",
+    "expo-asset": "^8.10.1",
     "expo-constants": "^14.4.2",
     "expo-linear-gradient": "~12.3.0",
     "expo-media-library": "~15.4.1",
@@ -25,9 +26,12 @@
     "react-native": "0.72.6",
     "react-native-elements": "^3.4.3",
     "react-native-fs": "^2.20.0",
+    "react-native-progress": "^5.0.1",
     "react-native-star-rating": "^1.1.0",
     "react-native-vimeo-iframe": "^1.2.1",
-    "react-native-web": "^0.19.9"
+    "react-native-web": "^0.19.9",
+    "react-navigation-stack": "^2.10.4",
+    "StatusBar": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
