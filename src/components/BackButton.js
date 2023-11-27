@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 const BackButton = ({goBack}) => {
     return (
         <TouchableOpacity onPress={goBack}>
-            <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} resizeMode="Contain" />
+            <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} resizeMode="contain" />
         </TouchableOpacity>
     );
 }

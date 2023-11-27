@@ -14,7 +14,7 @@ import Profile from './src/components/Profile';
 import OlvidoContraseña from './src/components/OlvidoContraseña'
 import NewPassword from './src/components/NewPassword';
 import Stats from './src/components/Stats';
-
+import Carga from './src/components/Carga';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -22,10 +22,15 @@ const App = () => {
 
     return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="InicioSesion">
+        <Stack.Navigator initialRouteName="Carga">
             <Stack.Screen
                 name="InicioSesion"
                 component={InicioSesion}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
+                name="Carga"
+                component={Carga}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen

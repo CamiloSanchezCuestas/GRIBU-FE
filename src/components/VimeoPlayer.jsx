@@ -8,7 +8,6 @@ import RutasRecomendadas from "./RutasRecomendadas";
 
 
 
-
 import { ScrollView } from 'react-native-gesture-handler';
 import BackButton from './BackButton';
 
@@ -39,57 +38,51 @@ const VimeoPlayer = () => {
   };
 
   return (
-      <View style={styles.container}>
-        <View style={styles.BBContainer}>
-          <BackButton
-            goBack={goToHomeScreen}
-          />
-        </View>
-        
+    <View style={styles.container}>
+      <View style={styles.BBContainer}>
+      <BackButton goBack={goToHomeScreen} />
+      </View>
+
       <ScrollView>
-      <Vimeo
-
-        style={styles.vimeoPlayer}
-        videoId={'702700301'}
-        params={'api=1&autoplay=1'}
-        handlers={videoCallbacks}
-      />
-
-
-    
-        <View style={styles.grandcontainer}>
-
-      <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            Como recibir feedback negativo
-          </Text>
-      </View>
-      <View style={styles.starRatingContainer}>
-        <StarRating
-          disabled={false}
-          maxStars={5}
-          rating={rating}
-          selectedStar={(rating) => onStarRatingPress(rating)}
-          starSize={25}
-          fullStarColor="gold"
+        <Vimeo
+          style={styles.vimeoPlayer}
+          videoId={'702700301'}
+          params={'api=1&autoplay=1'}
+          handlers={videoCallbacks}
         />
-      </View>
 
-      <View style={styles.HerramientasContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Descargables')}>
-        <Image source={require('../../assets/icons/Herramientas.png')} style={styles.ImageHerramientas}/>
-        </TouchableOpacity>
-        <Text style={styles.textButtom}>Mira tus herramientas aquí</Text>
-      </View>
-      <View style={styles.TextoRecContainer}>
-      <Text style={styles.TextoRec}>Lecciones recomendadas</Text>
-      </View>
-      <View>
-           <RutasRecomendadas
-            goToHomeScreen={goToHomeScreen}
-           />
-      </View>
-      </View>
+        <View style={styles.grandcontainer}>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Como recibir feedback negativo</Text>
+          </View>
+          <View style={styles.starRatingContainer}>
+            <StarRating
+              disabled={false}
+              maxStars={5}
+              rating={rating}
+              selectedStar={(rating) => onStarRatingPress(rating)}
+              starSize={25}
+              fullStarColor="gold"
+            />
+          </View>
+
+          <View style={styles.HerramientasContainer}>
+            <TouchableOpacity onPress={() => navigation.navigate('Descargables')}>
+              <Image
+                source={require('../../assets/icons/Herramientas.png')}
+                style={styles.ImageHerramientas}
+                resizeMode="contain" // Aplicar resizeMode aquí
+              />
+            </TouchableOpacity>
+            <Text style={styles.textButtom}>Mira tus herramientas aquí</Text>
+          </View>
+          <View style={styles.TextoRecContainer}>
+            <Text style={styles.TextoRec}>Lecciones recomendadas</Text>
+          </View>
+          <View>
+            <RutasRecomendadas goToHomeScreen={goToHomeScreen} />
+          </View>
+        </View>
       </ScrollView>
       <CustomBottomBar
         style={styles.navigation}
@@ -97,7 +90,6 @@ const VimeoPlayer = () => {
         goToHome={goToHomeScreen}
         goToStats={goToProfile}
       />
-      
     </View>
   );
 };
@@ -126,9 +118,10 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '8%',
   },
-  ImageHerramientas:{
+  ImageHerramientas: {
     width: '10%',
     height: '90%',
+    resizeMode: 'contain', 
   },
   textButtom:{
     fontStyle:'italic',

@@ -8,21 +8,23 @@ export default function InicioSesion() {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); 
+  const [error, setError] = useState('');
+  const usuario = "Nicomontes9";
+  const correo = "Nicomontes9@gmail.com";
+  const contraseña = "12345";
 
   const navigateToRegistro = () => {
     navigation.navigate('Registro');
   };
 
   const handleLogin = () => {
-    if ((email === 'Nicomontes9' || email === 'Nicomontes@gmail.com') && password === '12345') {
-     
+   // if ((email === usuario || email === correo) && password === contraseña) {
       console.log(`Iniciando sesión con correo electrónico: ${email} y contraseña: ${password}`);
       navigation.navigate('HomeScreen');
       setError('');
-    } else {
-      setError('Usuario no encontrado'); 
-    }
+    //} else {
+      //setError('Usuario no encontrado');
+    //}
   };
 
   const handleGmail = () => {
