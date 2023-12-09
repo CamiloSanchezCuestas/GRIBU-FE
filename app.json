@@ -25,12 +25,16 @@
           "INTERNET",
           "WRITE_EXTERNAL_STORAGE"
         ]
-      }
+      },
+      "package": "com.santiago_n21.GRIBUFE"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9d0ef4e3-4a78-4f98-a1c0-763fa49d0a3a"
+      }
     }
-
-    
   }
 }
