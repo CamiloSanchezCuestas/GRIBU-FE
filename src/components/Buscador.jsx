@@ -21,7 +21,7 @@ const Buscador = ({navigation}) => {
     };
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <Image source={fondoImagen} style={styles.backgroundImage} />
             
             <View style={styles.BBContainer}>
@@ -47,7 +47,7 @@ const Buscador = ({navigation}) => {
                 goToStats={goToProfile} 
             />
             
-        </SafeAreaView>
+        </View>
         
     );
 }

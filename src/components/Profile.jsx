@@ -1,13 +1,5 @@
 import React from "react";
-import {
-    ScrollView,
-    Text,
-    View,
-    Image,
-    StyleSheet,
-    TouchableOpacity,
-    TextInput,
-  } from "react-native";
+import {Text,View,Image,StyleSheet,TouchableOpacity,TextInput,} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useNavigation } from '@react-navigation/native';
 import CustomBottomBar from './NavegationBar';
@@ -27,12 +19,14 @@ const Profile = () => {
   
     return (
       <SafeAreaView style={styles.container}>
-        <TouchableOpacity
-          style={styles.buttonImage}
-          onPress={() => navigation.navigate("HomeScreen")}
-        >
-          <Image source={require("../../assets/icons/return.png")} style={styles.imageButton} />
-        </TouchableOpacity>
+      <TouchableOpacity style={styles.buttonImage} onPress={() => navigation.navigate("HomeScreen")}>
+      <Image source={require("../../assets/icons/return.png")} style={styles.imageButton} />
+          
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.buttonImageConf} onPress={() => navigation.navigate("CambioContraseña")}>
+    <Image source={require("../../assets/icons/Configuracion.png")} style={styles.imageButtonConf} />
+          
+    </TouchableOpacity>
   
         <Image source={require("../../assets/icons/Profile.png")} style={styles.avatarImage} />
         <Text style={styles.changeAvatarText}>CAMBIAR AVATAR</Text>
@@ -91,6 +85,20 @@ const Profile = () => {
       width: 60,
       height: 60,
     },
+    imageButtonConf:{
+      width: 65,
+      height: 65,
+
+    },
+
+    buttonImageConf:{
+      position: "absolute",
+      top: 50,
+      right: 10,
+      zIndex: 1,
+
+    },
+
     textcontainer:{
         
     paddingRight:250,

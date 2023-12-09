@@ -1,10 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import {NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/components/HomeScreen';
 import VimeoPlayer from './src/components/VimeoPlayer';
 import Descargables from './src/components/Descargables'
 import InicioSesion from './src/components/InicioSesion';
+import CambioContraseña from './src/components/CambioContraseña';
 import Registro from './src/components/Registro';
 import Modulo1Screen from './src/components/Modulo1Screen';
 import Modulo2Screen from './src/components/Modulo2Screen';
@@ -12,7 +13,8 @@ import Buscador from './src/components/Buscador';
 import Profile from './src/components/Profile';
 import OlvidoContraseña from './src/components/OlvidoContraseña'
 import NewPassword from './src/components/NewPassword';
-
+import Stats from './src/components/Stats';
+import Carga from './src/components/Carga';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -20,16 +22,31 @@ const App = () => {
 
     return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="InicioSesion">
+        <Stack.Navigator initialRouteName="Carga">
             <Stack.Screen
                 name="InicioSesion"
                 component={InicioSesion}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen
+                name="Carga"
+                component={Carga}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
+                name="Stats"
+                component={Stats}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
+                name="CambioContraseña"
+                component={CambioContraseña}
+                options={{ headerShown: false }} // Ocultar barra de navegación
+            />
+            <Stack.Screen
                 name="HomeScreen"
                 component={HomeScreen}
-                initialParams={{ user }}
+                //initialParams={{ user }}
                 options={{ headerShown: false }} // Ocultar barra de navegación
             />
             <Stack.Screen

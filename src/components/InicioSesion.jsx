@@ -1,25 +1,30 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ImageBackground } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; 
-import { LinearGradient } from 'expo-linear-gradient'; 
-
-
+import { useNavigation } from '@react-navigation/native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function InicioSesion() {
   const navigation = useNavigation();
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
- 
-
+  const [error, setError] = useState('');
+  const usuario = "Nicomontes9";
+  const correo = "Nicomontes9@gmail.com";
+  const contraseña = "12345";
 
   const navigateToRegistro = () => {
     navigation.navigate('Registro');
   };
 
   const handleLogin = () => {
-    console.log(`Iniciando sesión con correo electrónico: ${email} y contraseña: ${password}`);
-    navigation.navigate('HomeScreen')
+   // if ((email === usuario || email === correo) && password === contraseña) {
+      console.log(`Iniciando sesión con correo electrónico: ${email} y contraseña: ${password}`);
+      navigation.navigate('HomeScreen');
+      setError('');
+    //} else {
+      //setError('Usuario no encontrado');
+    //}
   };
 
   const handleGmail = () => {
@@ -27,27 +32,18 @@ export default function InicioSesion() {
   };
 
   const goTOOlvidoContraseña = () => {
-    navigation.navigate('OlvidoContraseña')
+    navigation.navigate('OlvidoContraseña');
   };
 
-        
   return (
-    <LinearGradient
-      colors={['#7731D0','#7731D0', '#d0c8ef']} 
-      style={styles.container}
-    >
+    <LinearGradient colors={['#7731D0', '#7731D0', '#d0c8ef']} style={styles.container}>
       <Text style={styles.title}> Bienvenido de nuevo </Text>
       <View style={styles.overlay1}>
-        <ImageBackground
-          source={require('../../assets/images/Portada.png')}
-          style={styles.Image} >
+        <ImageBackground source={require('../../assets/images/Portada.png')} style={styles.Image}>
         </ImageBackground>
 
         <View style={styles.imageTextContainer}>
-          <Text style={styles.imageText}>
-
-            Tu mundo de desarrollo personal
-          </Text>
+          <Text style={styles.imageText}>Tu mundo de desarrollo personal</Text>
         </View>
       </View>
       <View style={styles.overlay}>
@@ -64,28 +60,22 @@ export default function InicioSesion() {
           value={password}
           onChangeText={setPassword}
         />
-        
-       
-          <TouchableOpacity onPress={goTOOlvidoContraseña}>
-            <Text style={styles.forgotPasswordButton}>Te olvidaste de tu contraseña?</Text>
-          </TouchableOpacity>
-        
+
+        <Text style={styles.errorText}>{error}</Text>
+
+        <TouchableOpacity onPress={goTOOlvidoContraseña}>
+          <Text style={styles.forgotPasswordButton}>Te olvidaste de tu contraseña?</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-        <LinearGradient
-          colors={['#2aeefb','#c3f8ff']} 
-          start={{ x: 1, y: 0 }} 
-          end={{ x: 0, y: 0 }}
-          style={styles.buttonGradient}
-        >
-          <Text style={styles.buttonLogin}>INICIA SESIÓN</Text>
-        </LinearGradient>
+          <LinearGradient colors={['#2aeefb', '#c3f8ff']} start={{ x: 1, y: 0 }} end={{ x: 0, y: 0 }} style={styles.buttonGradient}>
+            <Text style={styles.buttonLogin}>INICIA SESIÓN</Text>
+          </LinearGradient>
         </TouchableOpacity>
 
         <Text style={styles.text2}>¿No tienes cuenta?</Text>
         <TouchableOpacity style={styles.button} onPress={navigateToRegistro}>
-       
-          <Text style={styles.buttonRegr}>Crea una aqui</Text>
+          <Text style={styles.buttonRegr}>Crea una aquí</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.Gmailbuttom} onPress={handleGmail}>
           <Text style={styles.buttonGmail}>Ingresar con Gmail</Text>
@@ -94,6 +84,7 @@ export default function InicioSesion() {
     </LinearGradient>
   );
 }
+
 
 
 const styles = StyleSheet.create({
