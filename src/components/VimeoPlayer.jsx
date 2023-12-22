@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollViewBase } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Vimeo } from 'react-native-vimeo-iframe';
-import StarRating from 'react-native-star-rating';
+import StarRating from 'react-native-star-rating-widget';
 import CustomBottomBar from './NavegationBar';
 import RutasRecomendadas from "./RutasRecomendadas";
 
@@ -56,14 +56,14 @@ const VimeoPlayer = () => {
             <Text style={styles.text}>Como recibir feedback negativo</Text>
           </View>
           <View style={styles.starRatingContainer}>
-            <StarRating
-              disabled={false}
-              maxStars={5}
-              rating={rating}
-              selectedStar={(rating) => onStarRatingPress(rating)}
-              starSize={25}
-              fullStarColor="gold"
-            />
+                    <StarRating
+                      disabled={false}
+                      maxStars={5}
+                      rating={rating}
+                      onChange={(rating) => onStarRatingPress(rating)}
+                      starSize={25}
+                      fullStarColor="gold"
+                    />
           </View>
 
           <View style={styles.HerramientasContainer}>
@@ -71,7 +71,7 @@ const VimeoPlayer = () => {
               <Image
                 source={require('../../assets/icons/Herramientas.png')}
                 style={styles.ImageHerramientas}
-                resizeMode="contain" // Aplicar resizeMode aquí
+                resizeMode="contain" 
               />
             </TouchableOpacity>
             <Text style={styles.textButtom}>Mira tus herramientas aquí</Text>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   starRatingContainer: {
     alignItems: 'flex-start',
-    paddingLeft: '5%',
+    paddingLeft: '4%',
     paddingVertical: '2%',
   },
   textContainer: {

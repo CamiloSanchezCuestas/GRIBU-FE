@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "GRIBUFE",
+    "name": "GRIBU",
     "slug": "GRIBUFE",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/GribuIcon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -19,18 +19,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff",
-        "permissions": [
-          "INTERNET",
-          "WRITE_EXTERNAL_STORAGE"
-        ]
-      }
+        "foregroundImage": "./assets/GribuIcon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.santiago_n21.GRIBUFE"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "9d0ef4e3-4a78-4f98-a1c0-763fa49d0a3a"
+      }
     }
-
-    
   }
 }
