@@ -51,12 +51,12 @@ const HomeScreen = ({ navigation }) => {
                         ¿Qué área de tu vida quieres trabajar hoy?
                     </Text>
                 </View>
-                <View syle={styles.MainOtrasClases}>
-                    <MainOtrasClases
+            
+                <MainOtrasClases
                         goToMOD1={goToMOD1}
                         goToMOD2={goToMOD2}
                     />
-                </View>
+               
             
             </ScrollView>
             <TouchableOpacity onPress={goToLook} style={styles.lupacontainer}>
@@ -66,6 +66,8 @@ const HomeScreen = ({ navigation }) => {
                 resizeMode="contain"
             />
             </TouchableOpacity>
+
+            
             <CustomBottomBar
                 goToProfile={goToProfile}
                 goToHome={goToLogin} 
@@ -79,17 +81,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+       
+        marginBottom:-25
     },
     Recommendedclass: {
         display: 'flex',
         flex: 1,
         marginBottom: '50%',
-        marginTop:'40%'
+        marginTop: '40%',
     },
     Lupa: {
         width: '12%',
-        //height: ,
-        opacity: 0.6
+        opacity: 0.6,
     },
     lupacontainer: {
         position: 'relative',
@@ -97,18 +100,17 @@ const styles = StyleSheet.create({
         left: '85%',
     },
     texts: {
-        marginLeft: '10%'
+        marginLeft: '10%',
     },
     title: {
         color: '#0032b3',
         fontWeight: 'bold',
         fontSize: 30,
-        
     },
     sub2: {
+        marginTop:20,
         color: '#0032b3',
         fontSize: 14,
-        
     },
     DayCountContainer: {
         position: 'absolute',
@@ -118,10 +120,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         zIndex: 1,
     },
-    MainOtrasClases: {
-    display: 'flex',
-    flex: 1,
-    }
+
 });
 
 export default HomeScreen;

@@ -37,16 +37,16 @@ const CustomBottomBar = ({ goToProfile, goToHome, goToStats }) => {
 const styles = StyleSheet.create ({
   bottomBar: {
     position: 'absolute',
-    bottom: '0%',
+    bottom: 25,
+    
     
     width: '100%',
     height: '8%',
     backgroundColor: '#60eef9',
 },
 secondcontainer:{
-    width: '90%',
+    width: '100%',
     alignSelf: 'center',
-
     display: 'flex',
     flex: 1,
    
