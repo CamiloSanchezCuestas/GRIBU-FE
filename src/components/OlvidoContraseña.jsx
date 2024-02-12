@@ -13,6 +13,7 @@ export default function OlvidoContraseña() {
     const handleSendPassword = () => {
         if (!Email.includes('@')) {
             setError('Ingresa un email válido');
+            console.log('Se pide un email válido')
         } else {
             setError('');
              setTimeout(() => {
@@ -22,7 +23,7 @@ export default function OlvidoContraseña() {
                     navigation.navigate('NewPassword'); 
                   }, 3000);
                 }, 3000);
-              
+            console.log('Caso contrario');
         }
 
        

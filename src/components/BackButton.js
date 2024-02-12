@@ -4,7 +4,10 @@ import { useNavigation } from '@react-navigation/native';
 
 const BackButton = ({goBack}) => {
     return (
-        <TouchableOpacity onPress={goBack}>
+        <TouchableOpacity onPress={() => {
+            goBack();
+            console.log('Going back...');
+        }}>
             <Image source={require('../../assets/icons/return.png')} style={styles.imageButton} resizeMode="contain" />
         </TouchableOpacity>
     );

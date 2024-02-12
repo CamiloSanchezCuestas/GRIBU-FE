@@ -15,6 +15,7 @@ export default function InicioSesion() {
 
   const navigateToRegistro = () => {
     navigation.navigate('Registro');
+    console.log('dirigiendose a registro');
   };
 
   const handleLogin = () => {
@@ -33,6 +34,7 @@ export default function InicioSesion() {
 
   const goTOOlvidoContraseña = () => {
     navigation.navigate('OlvidoContraseña');
+    console.log('dirigiendose a olvido contraseña');
   };
 
   return (

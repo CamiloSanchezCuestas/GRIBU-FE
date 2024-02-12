@@ -9,10 +9,12 @@ const Buscador = ({navigation}) => {
     const [searchText, setSearchText] = useState("");
 
     const goToProfile = () => {
-        navigation.navigate('Profile')
+        navigation.navigate('Profile');
+        console.log('Dirigiendose a perfil');
     };
     const goToHomeScreen = () => {
-        navigation.navigate('HomeScreen')
+        navigation.navigate('HomeScreen');
+        console.log('Dirigiendose a home');
     }
     
     const handleSearch = () => {

@@ -8,9 +8,11 @@ const CambioContraseña = () => {
   
     const goToProfile = () => {
       navigation.navigate("Profile");
+      console.log('Dirigiendose a perfil');
     };
     const goToLogin = () => {
       navigation.navigate("InicioSesion");
+      console.log('Dirigiendose a Login')
     };
   
     const navigation = useNavigation();

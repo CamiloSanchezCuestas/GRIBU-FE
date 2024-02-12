@@ -11,27 +11,35 @@ import MainOtrasClases from './MainOtrasClases';
 const HomeScreen = ({ navigation }) => {
     const goToVimeoPlayer = () => {
         navigation.navigate('VimeoPlayer');
+        console.log('Yendo a player');
     };
     const goToMOD1 = () => {
-        navigation.navigate('Modulo 1')
+        navigation.navigate('Modulo 1');
+        console.log('Yendo a módulo 1');
     };
     const goToMOD2 = () => {
-        navigation.navigate('Modulo 2')
+        navigation.navigate('Modulo 2');
+        console.log('Yendo a módulo 2')
     };
     const goToMOD3 = () => {
-        navigation.navigate('Modulo 3')
+        navigation.navigate('Modulo 3');
+        console.log('Yendo a modulo 3')
     };
     const goToLook = () => {
-        navigation.navigate('Buscador')
+        navigation.navigate('Buscador');
+        console.log('Yendo a buscador')
     };
     const goToProfile = () => {
-        navigation.navigate('Profile')
+        navigation.navigate('Profile');
+        console.log('Yendo a perfil')
     };
     const goToLogin = () => {
-        navigation.navigate('InicioSesion')
+        navigation.navigate('InicioSesion');
+        console.log('Yendo a Login')
     };
     const goToStats = () => {
-        navigation.navigate('Stats')
+        navigation.navigate('Stats');
+        console.log('Yendo a stats')
     }
 
     return (

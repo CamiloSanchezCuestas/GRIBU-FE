@@ -9,12 +9,15 @@ import RutasRecomendadas from "./RutasRecomendadas";
 const Modulo1Screen = ({ navigation }) => {
     const goToProfile = () => {
         navigation.navigate('Profile');
+        console.log('Yendo a perfil');
     };
     const goToHomeScreen = () => {
         navigation.navigate('HomeScreen');
+        console.log('Yendo a home');
     };
     const goToLook = () => {
-        navigation.navigate('Buscador')
+        navigation.navigate('Buscador');
+        console.log('Yendo a Buscador');
     };
 
     return (
