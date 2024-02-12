@@ -9,9 +9,11 @@ const Stats = () => {
    
     const goToProfile = () => {
         navigation.navigate("Profile");
+        console.log('Yendo a perfil');
     };
     const goToLogin = () => {
         navigation.navigate("InicioSesion");
+        console.log('Yendo a Login');
     };
 
     const navigation = useNavigation();

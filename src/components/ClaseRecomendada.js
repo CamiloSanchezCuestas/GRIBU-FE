@@ -9,7 +9,10 @@ const ClaseRecomendada = ({goToVimeoPlayer}) => {
             <Text style={styles.sub}>
                 Lecciones recomendadas para hoy
             </Text>
-            <TouchableOpacity onPress={goToVimeoPlayer}>
+            <TouchableOpacity onPress={() => {
+                goToVimeoPlayer();
+                console.log('Yendo a reproductor');
+                }}>
                 <Image
                     source={require('../../assets/images/FEEDBACKN.png')}
                     style={styles.Recommendedclass}

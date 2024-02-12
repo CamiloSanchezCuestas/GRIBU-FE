@@ -7,12 +7,15 @@ import CustomBottomBar from './NavegationBar';
 const Profile = () => {
     const goToLook = () => {
       navigation.navigate("Buscador");
+      console.log('Yendo a buscador');
     };
     const goToProfile = () => {
       navigation.navigate("Profile");
+      console.log('Yendo a perfil');
     };
     const goToLogin = () => {
       navigation.navigate("InicioSesion");
+      console.log('Yendo a Login');
     };
   
     const navigation = useNavigation();

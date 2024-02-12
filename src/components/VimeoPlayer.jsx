@@ -17,10 +17,12 @@ const VimeoPlayer = () => {
 
   const goToProfile = () => {
     navigation.navigate('Profile');
+    console.log('Yendo a perfil')
   };
 
   const goToHomeScreen = () => {
     navigation.navigate('HomeScreen');
+    console.log('yendo a home')
   };
 
   const onStarRatingPress = (rating) => {

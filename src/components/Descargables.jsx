@@ -12,13 +12,16 @@ const Descargables = () => {
  
   const goToProfile = () => {
      navigation.navigate('Profile');
+     console.log('Yendo a perfil');
   };
  
   const goToHomeScreen = () => {
      navigation.navigate('HomeScreen');
+     console.log('Yendo a home')
   };
   const goToVimeoPlayer = () => {
     navigation.navigate('VimeoPlayer');
+    console.log('Yendo al player')
   };
   const downloadFile = async () => {
      try {
