@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollViewBase } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Vimeo } from 'react-native-vimeo-iframe';
 import StarRating from 'react-native-star-rating-widget';
@@ -8,7 +8,7 @@ import RutasRecomendadas from "./RutasRecomendadas";
 
 
 
-import { ScrollView } from 'react-native-gesture-handler';
+//import { ScrollView } from 'react-native-gesture-handler';
 import BackButton from './BackButton';
 
 const VimeoPlayer = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ScrollView, Text, Image, StyleSheet, View, TouchableOpacity, SafeAreaView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { ScrollView, Text, Image, StyleSheet, View, TouchableOpacity, SafeAreaView, platform } from 'react-native';
+
 import { StatusBar } from 'expo-status-bar';
 import CustomBottomBar from './NavegationBar';
 import DayCount from './DayCount';
@@ -80,9 +80,9 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+       //marginTop: platform.os === 'android' ? StatusBar.currentHeight : 0,
        
-        marginBottom:-25
+        marginBottom:0
     },
     Recommendedclass: {
         display: 'flex',

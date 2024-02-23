@@ -10,14 +10,14 @@ const MainOtrasClases = ({ goToMOD1, goToMOD2 }) => {
       <TouchableOpacity onPress={goToMOD1}>
         <Image
           source={require('../../assets/images/ComuRuta.png')}
-          style={{ width: 400, height: 130, marginBottom: 50, marginTop: 30 }}
+          style={{ width: 400, height: 130, marginBottom: 50, marginTop: 30, borderRadius: 15 }}
         />
       </TouchableOpacity>
 
       <TouchableOpacity onPress={goToMOD2}>
         <Image
           source={require('../../assets/images/ComuRuta.png')}
-          style={{ width: 400, height: 130 }}
+          style={{ width: 400, height: 130, borderRadius: 15 }}
         />
       </TouchableOpacity>
     </View>

@@ -37,7 +37,7 @@ const CustomBottomBar = ({ goToProfile, goToHome, goToStats }) => {
 const styles = StyleSheet.create ({
   bottomBar: {
     position: 'absolute',
-    bottom: 25,
+    bottom: 0,
     
     
     width: '100%',

@@ -1,6 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpacity, Platform } from "react-native";
-import { useNavigation } from '@react-navigation/native';
+import { ScrollView, Text, View, Image, StyleSheet, SafeAreaView, TouchableOpacity, platform } from "react-native";
 import { StatusBar } from 'expo-status-bar';
 import CustomBottomBar from './NavegationBar';
 import ProfilePicHeader from "./ProfilePicHeader";
@@ -61,7 +60,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        marginTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
+       // marginTop: platform.OS === 'android' ? StatusBar.currentHeight : 0,
     },
     Headerimg: {
         width: '90%',

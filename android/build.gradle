@@ -2,7 +2,7 @@
 
 buildscript {
     ext {
-        gradleVersion = '8.0.1'
+        gradleVersion = '8.1'
         buildToolsVersion = "34.0.0"
         minSdkVersion = 21
         compileSdkVersion = 34
@@ -10,7 +10,7 @@ buildscript {
         kotlinVersion = "1.8.0"
         frescoVersion = '2.5.0'
 
-        // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
+     
         ndkVersion = "25.1.8937393"
     }
     repositories {
@@ -21,7 +21,8 @@ buildscript {
         dependencies {
         classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.10")
+    
     }
     }
 }
