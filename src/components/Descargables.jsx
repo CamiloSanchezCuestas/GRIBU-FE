@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, Platform, Alert } from 'react-native';
+import { View,StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system';
-import Constants from 'expo-constants';
 import * as MediaLibrary from 'expo-media-library';
 import CustomBottomBar from './NavegationBar';
 import BackButton from './BackButton';

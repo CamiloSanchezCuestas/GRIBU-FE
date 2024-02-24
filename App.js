@@ -1,6 +1,6 @@
-import React from 'react';
-import ViewPropTypes from 'deprecated-react-native-prop-types';
 
+import React from 'react';
+import { Platform, View, Text } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './src/components/HomeScreen';
@@ -18,6 +18,8 @@ import NewPassword from './src/components/NewPassword';
 import Stats from './src/components/Stats';
 import Carga from './src/components/Carga';
 const Stack = createStackNavigator();
+
+
 
 const App = () => {
     const user = { user };
